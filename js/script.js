@@ -12,26 +12,19 @@ function performLogic(buttonId, tileId) {
   changeTurn();
   $(buttonId).hide();
   if (playerTurn === 1){
-    $(tileId).text("O");
-  }
-  else if (playerTurn === 2) {
     $(tileId).text("X");
   }
-  threeInRow();
+  else if (playerTurn === 2) {
+    $(tileId).text("O");
+  }
+  HorizontalRow();
+ VerticalRow();
+ DiagonalRow();
 }
 
-function threeInRow (){
-  if ("#tile1" === "O" & "#tile2" === "O" & "#tile3" === "O"){
-    $("body").append("Congrats Player 1! You Win!");
-  }
-  else if ("#tile1" === "X" & "#tile2" === "X" & "#tileX" === "O"){
-    $(".winner").html("Congrats Player 2! You Win!");
-  }
+function getTileValue(tileId){
+  return $(tileId).text(); 
 }
-
-
-
-
 
 $("#button1").click(function() {
     performLogic("#button1","#tile1");
@@ -75,4 +68,68 @@ $("#button9").click(function() {
 
     performLogic("#button9","#tile9");
 });
+
+function HorizontalRow(){
+  if (getTileValue("#tile1") === "O" && getTileValue("#tile2") === "O" && getTileValue("#tile3") === "O"){
+   $(".winner").html("Congrats Player 1! You Win!");
+    $("h1").html("Player 1 Wins!");
+  }
+  else if (getTileValue("#tile4") === "O" && getTileValue("#tile5") === "O" && getTileValue("#tile6") === "O"){
+   $(".winner").html("Congrats Player 1! You Win!");
+    $("h1").html("Player 1 Wins!");
+  }
+  else if (getTileValue("#tile7") === "O" && getTileValue("#tile8") === "O" && getTileValue("#tile9") === "O"){
+   $(".winner").html("Congrats Player 1! You Win!");
+    $("h1").html("Player 1 Wins!");
+  }
+  else if (getTileValue("#tile1") === "X" && getTileValue("#tile2") === "X" && getTileValue("#tile3") === "X"){
+   $(".winner").html("Congrats Player 2! You Win!");
+    $("h1").html("Player 2 Wins!");
+  }
+   else if (getTileValue("#tile4") === "X" && getTileValue("#tile5") === "X" && getTileValue("#tile6") === "X"){
+   $(".winner").html("Congrats Player 2! You Win!");
+     $("h1").html("Player 2 Wins!");
+  }
+  else if (getTileValue("#tile7") === "X" && getTileValue("#tile8") === "X" && getTileValue("#tile9") === "X"){
+   $(".winner").html("Congrats Player 2! You Win!");
+    $("h1").html("Player 2 Wins!");
+  }
+}
+function VerticalRow(){
+  if (getTileValue("#tile1") === "O" && getTileValue("#tile4") === "O" && getTileValue("#tile7") === "O"){
+   $(".winner").html("Congrats Player 1! You Win!");
+    $("h1").html("Player 1 Wins!");
+  }
+  else if (getTileValue("#tile2") === "O" && getTileValue("#tile5") === "O" && getTileValue("#tile8") === "O"){
+   $(".winner").html("Congrats Player 1! You Win!");
+    $("h1").html("Player 1 Wins!");
+  }
+  else if (getTileValue("#tile3") === "O" && getTileValue("#tile6") === "O" && getTileValue("#tile9") === "O"){
+   $(".winner").html("Congrats Player 1! You Win!");
+    $("h1").html("Player 1 Wins!");
+  }
+  else if (getTileValue("#tile1") === "X" && getTileValue("#tile4") === "X" && getTileValue("#tile7") === "X"){
+   $(".winner").html("Congrats Player 2! You Win!");
+    $("h1").html("Player 2 Wins!");
+  }
+   else if (getTileValue("#tile2") === "X" && getTileValue("#tile5") === "X" && getTileValue("#tile8") === "X"){
+   $(".winner").html("Congrats Player 2! You Win!");
+     $("h1").html("Player 2 Wins!");
+  }
+  else if (getTileValue("#tile3") === "X" && getTileValue("#tile6") === "X" && getTileValue("#tile9") === "X"){
+   $(".winner").html("Congrats Player 2! You Win!");
+    $("h1").html("Player 2 Wins!");
+}  
+}
+function DiagonalRow(){
+  if (getTileValue("#tile1") === "O" && getTileValue("#tile5") === "O" && getTileValue("#tile9") === "O"){
+   $(".winner").html("Congrats Player 1! You Win!");
+    $("h1").html("Player 1 Wins!");
+  }
+  else if (getTileValue("#tile1") === "X" && getTileValue("#tile5") === "X" && getTileValue("#tile9") === "X"){
+   $(".winner").html("Congrats Player 2! You Win!");
+    $("h1").html("Player 2 Wins!");
+  }
+}  
+
 
